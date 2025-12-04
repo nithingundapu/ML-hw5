@@ -27,3 +27,37 @@ This code implements the core attention mechanism used in Transformer models.
 
 
 #question2
+
+# Multi-Head Self-Attention & Transformer Encoder (PyTorch)
+
+This module implements the core components of a Transformer encoder layer.
+
+# MultiHeadSelfAttention
+The `MultiHeadSelfAttention` class performs:
+1. **Linear projections**  
+   Input `x` is projected into Query (Q), Key (K), and Value (V) matrices.
+2. **Head splitting**  
+   The vectors are reshaped into multiple attention heads for parallel processing.
+3. **Scaled dot-product attention**  
+   \[
+   \text{scores} = \frac{QK^T}{\sqrt{d_{\text{head}}}}
+   \]
+   Softmax converts scores into attention weights.
+4. **Combine heads**  
+   Outputs from all heads are merged and passed through a final linear layer.
+
+#  TransformerEncoder
+The encoder block includes:
+- **Multi-head self-attention**
+- **Residual connections**
+- **Layer normalization**
+- **Feed-forward network (FFN)**  
+A two-layer MLP expands and projects features back to `d_model`.
+
+#  Test Output
+Running the test script verifies correct shape flow:
+- Encoder output: **(batch, seq_len, d_model)** → `(32, 10, 128)`
+- Attention weights: **(batch, heads, seq, seq)** → `(32, 8, 10, 10)`
+
+This confirms that each token attends to every other token across all attention heads.
+
