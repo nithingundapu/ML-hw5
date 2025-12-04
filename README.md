@@ -28,7 +28,7 @@ This code implements the core attention mechanism used in Transformer models.
 
 #question2
 
-# Multi-Head Self-Attention & Transformer Encoder (PyTorch)
+#  Self-Attention & Transformer Encoder (PyTorch)
 
 This module implements the core components of a Transformer encoder layer.
 
